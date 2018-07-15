@@ -29,6 +29,8 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	font-size: 14px;
+	color: #222;
 }
 ol, ul {
 	list-style: none;
@@ -44,5 +46,13 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+a{
+	color: #222;
+	text-decoration: none;
+	&:hover{
+		color: #222;
+		text-decoration: none;
+	}
 }
  `

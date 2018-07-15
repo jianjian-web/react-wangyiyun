@@ -1,0 +1,35 @@
+@import url('./static/less/variable.less');
+.layoutFooter{
+  position: fixed;
+  bottom:0;
+  width:100%;
+  padding:0;
+  height: 65px;
+  line-height: 65px;
+  border-top:1px solid @lineColor;
+}
+.contentHeight{
+  height: calc(~'100vh - 65px - 60px');
+  overflow: auto;
+}
+.layoutSider{
+  background: @siderBgColor;
+  border-right: 1px solid @lineColor;
+  overflow: auto;
+}
+.headerWrapper{
+  height:60px;
+  line-height: 60px;
+  background: @bgColor;
+  padding:0;
+  .logo{
+    width: 140px;
+    height: 23px;
+    cursor: pointer;
+    vertical-align: middle;
+    margin-left: 20px;
+  }
+}
+.mainContent{
+  background: @contentBgColor;
+}
