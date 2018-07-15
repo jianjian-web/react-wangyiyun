@@ -13,14 +13,14 @@
   overflow: auto;
 }
 .layoutSider{
-  background: @siderBgColor;
+  background: @siderbaseColor;
   border-right: 1px solid @lineColor;
   overflow: auto;
 }
 .headerWrapper{
   height:60px;
   line-height: 60px;
-  background: @bgColor;
+  background: @baseColor;
   padding:0;
   .logo{
     width: 140px;
@@ -31,5 +31,11 @@
   }
 }
 .mainContent{
-  background: @contentBgColor;
+  background: @contentbaseColor;
+}
+:global(.content) {
+  max-width: 1140px;
+  min-width: 740px;
+  border:1px solid red;
+  margin: 0 auto;
 }

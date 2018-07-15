@@ -1,0 +1,58 @@
+@import url('../../static/less/variable.less');
+.findMusic{
+  .tabs{
+    border-bottom: 1px solid @lineColor;
+  }
+  :global(.ant-tabs-ink-bar.ant-tabs-ink-bar-animated) {
+    display: none!important;
+  }
+  :global(.ant-tabs-nav-scroll) {
+    display: flex;
+    justify-content: center; 
+  }
+  :global(.ant-tabs-tab-active) {
+    color: @baseColor;
+  }
+  :global(.ant-tabs-tab) {
+    &:hover{
+      color: @baseColor;
+    }
+  }
+  .carousel{
+    height: 200px;
+    width: 100%;
+    display: flex;
+    .img{
+      width: 100%;
+    }
+  }
+  :global(.slick-track) {
+    display: flex;
+  }
+  :global(.slick-track .slick-active) {
+    flex:1;
+  }
+  :global(.slick-track .slick-center) {
+    flex: 3;
+  }
+  :global(.slick-dots) {
+    li{
+      button{
+        background: #afafaf;
+        width: 10px;
+        height: 10px;
+        border-radius: 5px;
+        margin: 0 5px;
+      }
+    }
+  }
+  :global(.slick-dots > .slick-active){
+    button{
+      width: 10px!important;
+      height: 10px!important;
+      border-radius: 5px!important;
+      margin: 0 5px!important;
+      background: red!important;
+    }
+  }
+}
