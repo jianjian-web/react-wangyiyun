@@ -19,22 +19,28 @@
     }
   }
   .carousel{
-    height: 200px;
     width: 100%;
-    display: flex;
     .img{
       width: 100%;
     }
   }
-  :global(.slick-track) {
-    display: flex;
+  .carouselWrapper{
+    margin-right: -5%;
+  }
+  :global(.slick-slide) {
+    overflow: hidden;
   }
   :global(.slick-track .slick-active) {
-    flex:1;
+    img{
+      width: 85%!important;
+    }
   }
   :global(.slick-track .slick-center) {
-    flex: 3;
+    img{
+      width: 130%!important;
+    }
   }
+  // 给轮播图下方的点设置样式
   :global(.slick-dots) {
     li{
       button{

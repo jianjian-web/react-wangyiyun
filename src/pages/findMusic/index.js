@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Tabs, Carousel } from 'antd'
+import { Tabs } from 'antd'
+import Carousel from '../../common/carousel'
 import style from './style.less'
 import axios from 'axios'
 axios.defaults.baseURL = 'http://127.0.0.1:4000'
@@ -14,36 +15,14 @@ class FindMusic extends Component {
     }
   }
   render() {
-    const settings = {
-      className: "center",
-      centerMode: true,
-      infinite: true,
-      centerPadding: "0",
-      slidesToShow: 3,
-      speed: 500,
-      autoplay: false,
-      dots: true,
-      adaptiveHeight: true,
-      arrows: true,
-      autoplaySpeed: 5000,
-      lazyLoad: true
-    };
     return (
       <div className={style.findMusic}>
         <Tabs defaultActiveKey="tuijian">
           <TabPane tab="推荐" key="tuijian">
             <div className='content'>
-              <Carousel
-                {...settings}
-              >
-                {
-                  this.state.banners && this.state.banners.map((item, index) => (
-                    <div className={style.carousel} key={index}>
-                      <img src={item.picUrl} alt="" className={style.img} />
-                    </div>
-                  ))
-                }
-              </Carousel>
+              {
+                this.state.banners.length ? <Carousel list={this.state.banners}></Carousel> : ''
+              }
             </div>
           </TabPane>
           <TabPane tab="排行榜" key="paihang">Content of Tab Pane 2</TabPane>
