@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Tabs } from 'antd'
 import Carousel from '../../common/carousel'
+import Title from '../../common/title'
 import style from './style.less'
 import axios from 'axios'
 axios.defaults.baseURL = 'http://127.0.0.1:4000'
@@ -21,8 +22,9 @@ class FindMusic extends Component {
           <TabPane tab="推荐" key="tuijian">
             <div className='content'>
               {
-                this.state.banners.length ? <Carousel list={this.state.banners}></Carousel> : ''
+                this.state.banners.length ? <Carousel list={this.state.banners}/> : ''
               }
+              <Title title='热门精选' />
             </div>
           </TabPane>
           <TabPane tab="排行榜" key="paihang">Content of Tab Pane 2</TabPane>

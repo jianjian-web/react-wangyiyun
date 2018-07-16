@@ -13,7 +13,7 @@ class Carousel extends Component {
   render() {
     return (
       <div className={style.carousel}>
-        <section className="swiper-container" ref={self => this.swiperID = self}>
+        <section className={`swiper-container ${style.swiperContainer}`} ref={self => this.swiperID = self}>
           <div className="swiper-wrapper">
             {
               this.props.list.map((item, index) => (
@@ -21,9 +21,9 @@ class Carousel extends Component {
               ))
               }
           </div>
-          <div className={`${style.prev} swiper-button-prev`}></div>
-          <div className={`${style.next} swiper-button-next`}></div>
-          <div className="swiper-pagination" ref={self => this.paginateID = self}></div>
+          {/* <div className={`${style.prev} swiper-button-prev`}></div>
+          <div className={`${style.next} swiper-button-next`}></div> */}
+          <div className={`swiper-pagination ${style.pagination}`} ref={self => this.paginateID = self}></div>
         </section>
       </div>
     )
@@ -34,10 +34,11 @@ class Carousel extends Component {
         el: this.paginateID,
       },
       loop: true,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
+      // navigation: {
+      //   nextEl: '.swiper-button-next',
+      //   prevEl: '.swiper-button-prev',
+      // },
+      autoplay:true,
       effect: 'coverflow',
       grabCursor: true,
       centeredSlides: true,
