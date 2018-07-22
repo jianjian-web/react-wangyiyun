@@ -38,7 +38,7 @@ class Carousel extends Component {
       //   nextEl: '.swiper-button-next',
       //   prevEl: '.swiper-button-prev',
       // },
-      autoplay:true,
+      // autoplay:true,
       effect: 'coverflow',
       grabCursor: true,
       centeredSlides: true,

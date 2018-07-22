@@ -3,28 +3,33 @@ import { connect } from 'react-redux'
 import { Tabs } from 'antd'
 import Carousel from '../../common/carousel'
 import Title from '../../common/title'
+import Cards from '../../common/cards'
 import style from './style.less'
-import axios from 'axios'
-axios.defaults.baseURL = 'http://127.0.0.1:4000'
+import http from '../../config/http'
 const TabPane = Tabs.TabPane
 
 class FindMusic extends Component {
   constructor(props) {
     super()
     this.state = {
-      banners: []
+      banners: [],
+      personalized: []
     }
   }
   render() {
     return (
       <div className={style.findMusic}>
-        <Tabs defaultActiveKey="tuijian">
+        <Tabs defaultActiveKey="tuijian" animated={false}>
           <TabPane tab="推荐" key="tuijian">
             <div className='content'>
               {
                 this.state.banners.length ? <Carousel list={this.state.banners}/> : ''
               }
               <Title title='热门精选' />
+              {
+                this.state.personalized.length ? <Cards data={this.state.personalized}></Cards> :
+                'loading'
+              }
             </div>
           </TabPane>
           <TabPane tab="排行榜" key="paihang">Content of Tab Pane 2</TabPane>
@@ -35,17 +40,13 @@ class FindMusic extends Component {
       </div>
     )
   }
-  componentDidMount() {
-    axios.get('/banner').then(res => {
-      console.dir(res)
-      console.dir(this)
-      if (res.data.code === 200) {
-        // this.banners = res.data.banners
-        this.setState({
-          banners: res.data.banners
-        })
-      }
-      console.dir(this.state.banners)
+  async componentDidMount() {
+    const banners = await http.get('/banner')
+    const personalized = await http.get('/personalized')
+    console.dir(personalized)
+    this.setState({
+      banners: banners.banners,
+      personalized: personalized.result
     })
   }
 }
